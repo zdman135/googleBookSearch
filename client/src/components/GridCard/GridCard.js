@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './GridCard.css';
 import API from '../../utils/API';
-import Saved from '../../pages/Saved'
 
 class GridCard extends Component {
   constructor(props) {
@@ -81,17 +80,17 @@ class GridCard extends Component {
               </div>
               )}
             <p>
-              <img src={this.state.image} className="ui image" />
+              <img src={this.state.image} className="ui image" alt="book" />
             </p>
 
             <button className="ui left attached button"><a className="header" href={this.state.link}>View Details</a></button>
 
-            {this.state.type == "save" ? (
+            {this.state.type === "save" ? (
               this.state.saved ? <button className="right attached ui button">Saved</button>: <button className="right attached ui button" onClick={this.saveBook}>Save</button>
               ) : (
                 <button className="right attached ui button" onClick={this.deleteBook}>Delete</button>
               )}
-      
+
           </div>
         </div>
       </div>

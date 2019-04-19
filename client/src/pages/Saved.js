@@ -24,7 +24,15 @@ class Saved extends Component {
         return(
             <div>
             {!this.state.books.length ? (
-                <h1 className="text-center">No Books Searched Yet</h1>
+                    <div className="ui vertical stripe quote segment">
+                    <div className="ui equal width stackable internally celled grid">
+                      <div className="center aligned row">
+                        <div className="column">
+                        <h1>There are no books saved!</h1>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
               ) : (
                   this.state.books.map(book => {
                     return (

@@ -50,7 +50,7 @@ class Search extends Component {
                  />
 
               {!this.state.books.length ? (
-                <h1 className="text-center">No Books Searched Yet</h1>
+                <div />
               ) : (
                   this.state.books.map(book => {
                     return (

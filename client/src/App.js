@@ -6,7 +6,6 @@ import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 
 import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
 import JumboTron from "./components/JumboTron/JumboTron"
 
 function App() {
@@ -14,7 +13,12 @@ function App() {
     <Router>
       <div className="pushable">
         <div className="ui inverted vertical masthead center aligned segment">
-            <NavBar />
+        <Switch>
+          <Route exact path="/" render={() => <NavBar link="search" />} />
+          <Route exact path="/saved" render={() => <NavBar link="saved" />} />
+          <Route render={() => <NavBar link="noMatch" />} />
+
+        </Switch>
             <JumboTron />
         </div>
         <Switch>
@@ -22,7 +26,6 @@ function App() {
           <Route exact path="/saved" component={Saved} />
           <Route component={NoMatch} />
         </Switch>
-      <Footer />
       </div>
     </Router>
   );

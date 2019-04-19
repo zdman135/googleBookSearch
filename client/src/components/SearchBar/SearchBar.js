@@ -2,21 +2,21 @@ import React from "react";
 
 function SearchBar(props) {
   return(
-    <div className="ui vertical stripe quote segment">
-    <div className="ui equal width stackable internally celled grid">
-      <div className="center aligned row">
+    <div className="ui segment">
+    <div className="ui text container">
+      <div className="ui header center aligned segment">
         <h2>Book Search</h2>
-                    
+
         <div className="ui small form">
             <div className="one fields">
                 <div className="field">
-                    <label>Book</label>
                     <input
+                     style={{width:'655px'}}
                      value={props.searchQuery}
                      name="searchQuery"
                      onChange={props.handleInputChange}
                      type="text"
-                     placeholder="Search Book On Google"
+                     placeholder="Search Books On Google"
                       />
                 </div>
             </div>
