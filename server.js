@@ -1,3 +1,6 @@
+const dotenv = require("dotenv").config();
+const axios = require('axios');
+
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -26,13 +29,20 @@ app.get("/api/books", (req, res) => {
 
 app.post("/api/books", (req, res) => {
   let book = req.body
-
   db.Book.create(book).then(book => {
     res.json(book);
   }).catch(err => {
     console.log(err);
   });
 });
+
+app.get("/api/books/:id", (req,res) => {
+  db.Book.findOne({ bookId: req.params.id }, err => {
+    if(err) console.log(err);
+  }).then(book => {
+    res.json(book)
+  });
+})
 
 app.delete("/api/books/:id", (req, res) => {
   db.Book.deleteOne({ _id: req.params.id }, err => {
@@ -43,7 +53,7 @@ app.delete("/api/books/:id", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, () => {
